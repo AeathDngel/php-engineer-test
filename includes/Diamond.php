@@ -43,7 +43,7 @@ class Diamond extends Shape
         $isEvenLength = $this->sideLength % 2 === 0 ? true : false;
         $size = 1;
         $reachedHalfway = false;
-
+        
         while($size) {
             if($size == 1) {
                 $size--;
@@ -53,14 +53,12 @@ class Diamond extends Shape
                 echo $this->padding(($size - 2)*4);
                 echo $this->pixel;
             }
-        
             if($size == $this->sideLength && $isEvenLength) {
                 $reachedHalfway = true;
             }
             if($size == ($this->sideLength - 1) && !$isEvenLength) {
                 $reachedHalfway = true;
             }
-
             if(!$reachedHalfway) {
                 $size += 2;
             } else {
@@ -69,7 +67,6 @@ class Diamond extends Shape
                 }
                 $size -= 2;
             }
-            
             $this->newLine();
         }
     }

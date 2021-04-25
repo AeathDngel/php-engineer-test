@@ -11,7 +11,7 @@ use FlickerLeap\Diamond;
 use FlickerLeap\Rectangle;
 use FlickerLeap\Square;
 
-$sideLength = 5;
+$sideLength = 10;
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,12 +96,15 @@ $sideLength = 5;
         
         <h2>Recommendations</h2>
         <p>Overall documentation was good, it was a quick and fun test to do.</p>
-        <ul>
-            <li>
-                <p>The link provided on the GitHub doc <a href="http://pokeapi.co/api/v2/pokemon/mewtwo/">http://pokeapi.co/api/v2/pokemon/mewtwo/</a> 
-                should be <a href="https://pokeapi.co/api/v2/pokemon/">https://pokeapi.co/api/v2/pokemon/</a></p>
-            </li>
-        </ul>
-       
+
+        <p>I used <a href="https://pokeapi.co/api/v2/pokemon/">https://pokeapi.co/api/v2/pokemon/</a> for my last API problem.
+            Either the document should  remove '/ name' from number 7 in the list of requests or 
+            The link provided on the GitHub doc <a href="http://pokeapi.co/api/v2/pokemon/mewtwo/">http://pokeapi.co/api/v2/pokemon/mewtwo/</a> 
+            should be replaced with <a href="https://pokeapi.co/api/v2/pokemon/">https://pokeapi.co/api/v2/pokemon/</a>
+            
+            Reason (trying to be proactive): In general the word label immediately made me thought of an object's label where as name made me thought of a pokemons name, this could
+            leave room for confusion as there wasn't any objects with a 'name'. This is only an opinion and might differ from person to person.
+        </p>
+
     </body>
 </html>
