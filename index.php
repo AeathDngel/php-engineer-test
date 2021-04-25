@@ -9,7 +9,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 use FlickerLeap\Diamond;
 use FlickerLeap\Rectangle;
+use FlickerLeap\Square;
 
+$sideLength = 5;
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,19 @@ use FlickerLeap\Rectangle;
         <title>Flicker Leap - PHP Engineer Test</title>
     </head>
     <style type="text/css">
-        body{line-height: 1em;}
+        body{line-height: 1em; padding: 3%}
+        table {text-align: left;  box-shadow: 1px 1px 1px #ccc6c6; color: #373738}
+        table, th, td {border: 0.8px solid #abb3c2; border-collapse: collapse; padding: 10px;}
+        .pokemon-blue {background-color: #2656A8; color:white}
+        .pokemon-yellow {background-color:#F7C206; color:#363636}
+        a:hover {cursor:pointer;color:#F7C206; }
+        a{ color:#2656A8;text-decoration:none;}
+        .diamond {color:#000}
+        .diamond:hover {color:#2656A8}
+        .rectangle {color:#000}
+        .rectangle:hover {color:#42A656}
+        .square {color:#000}
+        .square:hover {color:#EF8403}
     </style>
     <body>
 
@@ -28,32 +42,66 @@ use FlickerLeap\Rectangle;
         <p>At the end of this test, you should have all the answers on this page.</p>
 
         <h2>Output a square</h2>
-
-        <?php
-            // implement the square class here
-        ?>
-
+        <a href="https://en.wikipedia.org/wiki/Square" class="square">
+            <?php
+            $square = new Square($sideLength);
+            $square->displayName();
+            $square->draw();
+            ?>
+        </a>
         <h2>Output a diamond</h2>
 
-        <?php
-            // output your diamond here
-        ?>
-
+        <a href="https://en.wikipedia.org/wiki/Rhombus" class="diamond">
+            <?php
+                $diamond = new Diamond($sideLength);
+                $diamond->displayName();
+                $diamond->draw();
+            ?>
+        </a>
         <h2>Output your rectangle</h2>
-
-        <?php
-            // output your working rectangle here
-        ?>
-
+        <a href="https://en.wikipedia.org/wiki/Rectangle" class="rectangle">
+            <?php
+                $rectangle = new Rectangle($sideLength);
+                $rectangle->displayName();
+                $rectangle->draw();
+            ?>
+        </a>
         <h2>Output the result of the API</h2>
 
         <?php
-            // Use the Httpful client to output the API results here.
+            $uri = "https://pokeapi.co/api/v2/pokemon/";
+            $response = \Httpful\Request::get($uri)->send();
+
+            $i = 1;
+            echo '<h3>Pokemons</h3>';
         ?>
-
+        <table>
+            <thead>
+                <tr class="pokemon-blue">
+                    <th colspan="2">POKEMON</th>
+                </tr>
+                <tr class="pokemon-yellow">
+                    <th colspan="1">NAME</th>
+                    <th colspan="1">URL</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php  foreach($response->body->results as $result) { ?>
+                <tr>
+                    <td><?php echo ucwords($result->name);?> </td>
+                    <td><a href="<?php echo $result->url?>"><?php echo $result->url; if ($i++ == 3) break;}?></a></td>
+                </tr>
+            </tbody>
+        </table>
+        
         <h2>Recommendations</h2>
-
-        <p><!-- Let us know how we can improve this test here --></p>
-
+        <p>Overall documentation was good, it was a quick and fun test to do.</p>
+        <ul>
+            <li>
+                <p>The link provided on the GitHub doc <a href="http://pokeapi.co/api/v2/pokemon/mewtwo/">http://pokeapi.co/api/v2/pokemon/mewtwo/</a> 
+                should be <a href="https://pokeapi.co/api/v2/pokemon/">https://pokeapi.co/api/v2/pokemon/</a></p>
+            </li>
+        </ul>
+       
     </body>
 </html>
