@@ -11,7 +11,7 @@ use FlickerLeap\Diamond;
 use FlickerLeap\Rectangle;
 use FlickerLeap\Square;
 
-$sideLength = 10;
+$sideLength = 15;
 ?>
 <!DOCTYPE html>
 <html>

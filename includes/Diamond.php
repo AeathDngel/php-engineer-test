@@ -43,11 +43,14 @@ class Diamond extends Shape
         $isEvenLength = $this->sideLength % 2 === 0 ? true : false;
         $size = 1;
         $reachedHalfway = false;
-        
+
         while($size) {
             if($size == 1) {
                 $size--;
-            } else {
+            } else if ($size < 4) {
+                echo $this->padding( ($this->sideLength - $size)*2 +1);
+                echo $this->pixel;
+            }else {
                 echo $this->padding( ($this->sideLength - $size)*2);
                 echo $this->pixel;
                 echo $this->padding(($size - 2)*4);
