@@ -55,7 +55,7 @@ Fix the Rectangle class. The rectangle that should be drawn should have its long
 
 ### 7. Use Httpful to do an API call
 
-Do a GET request to `http://pokeapi.co/api/v2/pokemon/mewtwo/` and output 3 items from the result (remember to help us understand what is being output using item label / name).
+Do a GET request to `http://pokeapi.co/api/v2/pokemon/` and output 3 items from the result (remember to help us understand what is being output using item label / name).
 
 ### 8. Suggest an improvement to the test
 
