@@ -20,7 +20,7 @@ class Square extends Shape
     {
         $this->name = 'Square';
         $this->sides = 4;
-        $this->sideLength = $length;
+        $this->sideLength = round($length);
         $this->pixel = "*";
     }
 

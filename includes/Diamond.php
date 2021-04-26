@@ -18,7 +18,7 @@ class Diamond extends Shape
     public function __construct($length = 5)
     {
         $this->name = 'Diamond';
-        $this->sideLength = $length;
+        $this->sideLength = round($length);
         $this->pixel = "♦";
     }
 
@@ -36,7 +36,7 @@ class Diamond extends Shape
      */
     public function draw()
     {
-        if($this->sideLength < 6) {
+        if($this->sideLength < 5) {
             echo 'The length you supplied seems a bit to small to draw a proper diamond!';
             return;
         }

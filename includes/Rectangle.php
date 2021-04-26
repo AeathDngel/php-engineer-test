@@ -19,7 +19,7 @@ class Rectangle extends Shape
     public function __construct($length = 5) {
         $this->name = 'Rectangle';
         $this->sides = 4;
-        $this->sideLength = $length;
+        $this->sideLength = round($length);
         $this->pixel = "*";
     }
 
